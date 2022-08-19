@@ -1,39 +1,33 @@
 <h1 align="center"> Enuygun - Test Automation Bootcamp - Swagger Pet Store API  </h1>
 
-### https://petstore.swagger.io/ servisini kullanarak ; 
+### https://petstore.swagger.io/ servisini kullanarak ;
 #### 1) /pet/findByStatus servisinin available, pending,sold parametresi ile testini yazın.
-<img src="C:/Users/aliozkan/Desktop/findpetbystatus.png">
 
 #### 2) /pet/findByStatus responsundan dönen pet'lerin üçüncüsünün Id'sini /pet/{petId} get servisine pet id parametresinde göndererek testini yazın.
-<img src="C:/Users/aliozkan/Desktop/findpetbyid.png">
 
 #### 3) /pet/{petId} post, delete testlerini yazın.
-
-<img src="C:/Users/aliozkan/Desktop/updatepetbyid.png">
-<img src="C:/Users/aliozkan/Desktop/deletepetbyid.png">
-
 
 #### Available, pending ve sold parametreleri için 3 ayrı sınıf oluşuturulmuştur. Aşağıdaki kod parçası, get/pet/findByStatus sorgusundan dönen response'u List olarak alarak, listenin 3. öğesinin id değerini almamızı sağlamaktadır. Bu değer, diğer sorgularda kullanılacaktır.
 ```java
 String thirdId;
 
 @Test(priority = 0)
-    @Story("This method gets third Id value from Get/FindByStatus request.")
-    @Feature("Get third Id value")
-    public void getThirdIdValue() {
+@Story("This method gets third Id value from Get/FindByStatus request.")
+@Feature("Get third Id value")
+public void getThirdIdValue() {
 
         List<Object> list = RestAssured
-                .given()
-                .queryParam("status", "available")
-                .when()
-                .get(baseURI + "/findByStatus")
-                .then()
-                .extract().path("id");
+        .given()
+        .queryParam("status", "available")
+        .when()
+        .get(baseURI + "/findByStatus")
+        .then()
+        .extract().path("id");
 
         thirdId = String.valueOf(list.get(2));
         System.out.println("thirdId : " + thirdId);
 
-    }
+        }
 ```
 ---
 ### ÖNEMLİ NOT
@@ -44,8 +38,11 @@ String thirdId;
 ---
 ### ALLURE REPORT GÖRSELLERİ
 
-<img src="C:/Users/aliozkan/Desktop/allurereport-1.png">
+![allurereport-1](https://user-images.githubusercontent.com/107454207/185461977-fbd7f42a-9ed3-4001-99ee-080e5da1f8c2.png)
 
-<img src="C:/Users/aliozkan/Desktop/allurereport-2.png">
+
+![allurereport-2](https://user-images.githubusercontent.com/107454207/185462084-79304941-2783-4266-9ece-4fbbd159a960.png)
+
+
 
 
