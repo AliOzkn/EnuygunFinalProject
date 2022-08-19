@@ -3,13 +3,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
-
 import java.util.HashMap;
 import java.util.Map;
-
 import static io.restassured.RestAssured.baseURI;
 import static io.restassured.RestAssured.given;
-import static org.testng.Assert.assertNull;
+import static org.testng.Assert.*;
 
 public class GroceryStoreTestWithDifferentStatusCodes {
 
