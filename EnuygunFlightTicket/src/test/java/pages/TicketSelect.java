@@ -2,7 +2,10 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import utilities.DriverSetup;
+
+import java.util.List;
 
 public class TicketSelect extends BasePage {
     By firstResult = By.xpath("(//div[@data-booking-provider])[1]");
@@ -15,20 +18,27 @@ public class TicketSelect extends BasePage {
         super(driver);
     }
 
-    public void selectTicket() {
+    public void selectFlights() throws InterruptedException {
+        List<WebElement> noFoundFlights = driver.findElements(By.xpath("//p[@class='result-empty-text']"));
+        if (noFoundFlights.isEmpty()) {
+            if (getAttribute(firstResult, "data-booking-provider").contains(DriverSetup.properties.getProperty("provider").toLowerCase())
+                    || getAttribute(firstResult, "data-booking-provider").contains("sabre")
+                    || getAttribute(firstResult, "data-booking-provider").contains("galileo")
+                    || getAttribute(firstResult, "data-booking-provider").contains("amadeus")) {
+                click(firstResultOfDepartureFlight);
+                Thread.sleep(2000);
+                click(firstResultOfReturnFlight);
+                Thread.sleep(2000);
 
-        if (getAttribute(firstResult, "data-booking-provider").contains(DriverSetup.properties.getProperty("provider").toLowerCase())
-                || getAttribute(firstResult, "data-booking-provider").contains("sabre")
-                || getAttribute(firstResult, "data-booking-provider").contains("galileo")
-                || getAttribute(firstResult, "data-booking-provider").contains("amadeus")) {
-            click(firstResultOfDepartureFlight);
-            click(firstResultOfReturnFlight);
+
+            } else {
+                System.out.println("uygun ucus bulunamadi");
+                driver.close();
+            }
 
         } else {
-            System.out.println("uygun ucus bulunamadi");
             driver.close();
         }
-
     }
 
     public void chooseTicket() {

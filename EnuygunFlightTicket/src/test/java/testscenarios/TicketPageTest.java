@@ -115,13 +115,11 @@ public class TicketPageTest extends BaseTest {
             assertFalse(flightType.flightWithTransfersAssertion());
         }
 
-        WebElement üzgünüzYazisi = driver.findElement(By.xpath("//p[@class='result-empty-text']")) ;
+    }
+    @Test (priority = 9)
+    public void selectTicket() throws InterruptedException {
 
-        if (üzgünüzYazisi.isDisplayed()){
-            driver.close();
-        } else {
-            ticketSelect.selectTicket(); // Bilet secme adimi
-        }
+        ticketSelect.selectFlights();
 
     }
 
