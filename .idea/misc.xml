@@ -6,6 +6,7 @@
       <list>
         <option value="$PROJECT_DIR$/GroceryStoreAPIProject/pom.xml" />
         <option value="$PROJECT_DIR$/SwaggerAPIProject/pom.xml" />
+        <option value="$PROJECT_DIR$/EnuygunFlightTicket/pom.xml" />
       </list>
     </option>
   </component>
