@@ -113,3 +113,4 @@ c1.add(Calendar.DATE, (Integer.parseInt(DriverSetup.properties.getProperty("depa
 ```
 ---
 #### Projede raporlama olarak Allure Report kullanılmıştır. Terminale allure serve (allure-results dosyası xpath) yazarak ilgili sayfaya ulaşabilirsiniz.
+![allure-result](https://user-images.githubusercontent.com/107454207/185796654-85c14aec-78ad-4f19-aecd-b688ef4ba1a9.png)
