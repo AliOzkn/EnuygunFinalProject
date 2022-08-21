@@ -17,7 +17,6 @@ public class TicketPlaceSearch extends BasePage {
     }
 
     public boolean checkMainLogo() {
-
         return isDisplayed(mainLogo);
     }
 
@@ -27,7 +26,8 @@ public class TicketPlaceSearch extends BasePage {
     }
 
     public boolean getOrigin() {
-        return getAttribute(originInput, "value").contains((DriverSetup.properties.getProperty("origin").toLowerCase()));
+
+        return find(originInput).getAttribute("value").toLowerCase().contains((DriverSetup.properties.getProperty("origin").toLowerCase()));
     }
 
     public void setDestination() {
@@ -36,12 +36,12 @@ public class TicketPlaceSearch extends BasePage {
     }
 
     public boolean getDestination() {
-        return getAttribute(destinationInput, "value").contains((DriverSetup.properties.getProperty("destination").toLowerCase()));
+        return find(destinationInput).getAttribute("value").toLowerCase().contains((DriverSetup.properties.getProperty("destination").toLowerCase()));
     }
 
     public Object findInputs() {
-        find(originInput).getText();
-        find(destinationInput).getText();
+        getText(originInput);
+        getText(destinationInput);
         return null;
     }
 }

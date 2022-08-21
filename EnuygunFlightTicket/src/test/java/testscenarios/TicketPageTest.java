@@ -2,60 +2,47 @@ package testscenarios;
 
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 import pages.*;
 import utilities.DriverSetup;
 
 import java.util.ArrayList;
 
-import static org.testng.Assert.*;
+import static org.testng.Assert.assertFalse;
+import static org.testng.Assert.assertTrue;
 
 public class TicketPageTest extends BaseTest {
-
     TicketPlaceSearch ticketPlaceSearch;
     TicketDateSearch ticketDateSearch;
     FlightType flightType;
     TicketSelect ticketSelect;
     PaymentPage paymentPage;
 
-
     /* ==================== TICKET SEARCH PAGE TESTS ==================== */
     @Test(priority = 1)
     @Story("This method compares the actual and expected URL values.")
     @Feature("Check current Url")
-    public void checkCurrentUrl() {
+    public void checkCurrentUrlAndMainLogo() {
         ticketPlaceSearch = new TicketPlaceSearch(driver);
         assertEquals(driver.getCurrentUrl(), DriverSetup.properties.getProperty("url"), "Actual and expected URLs don't match");
-    }
-
-    @Test(dependsOnMethods = "checkCurrentUrl", priority = 2)
-    @Story("This method controls the visibility of the main logo.")
-    @Feature("Check main logo is displayed")
-    public void checkMainLogoForSearchPage() {
         assertTrue(ticketPlaceSearch.checkMainLogo());
-
     }
 
-    @Test(dependsOnMethods = "checkCurrentUrl", priority = 3)
+
+    @Test(priority = 3)
     @Story("This method writes the requested origin value and checks the equality of the requested and the written value")
     @Feature("Entering the origin value.")
     public void checkOriginPlace() {
-
         ticketPlaceSearch.setOrigin();
-
         assertTrue(ticketPlaceSearch.getOrigin());
 
     }
 
-    @Test(dependsOnMethods = "checkCurrentUrl", priority = 4)
+    @Test(priority = 4)
     @Story("This method writes the requested destination value and checks the equality of the requested and the written value")
     @Feature("Entering the destination value.")
     public void checkDestinationPlace() {
-
         ticketPlaceSearch.setDestination();
-
         assertTrue(ticketPlaceSearch.getDestination());
 
     }
@@ -66,18 +53,15 @@ public class TicketPageTest extends BaseTest {
     public void checkDepartureDate() {
         ticketDateSearch = new TicketDateSearch(driver);
         ticketDateSearch.selectDepartureDay();
-
         assertTrue(ticketDateSearch.getDepartureDay());
 
     }
 
-    @Test(dependsOnMethods = "checkDepartureDate", priority = 6)
+    @Test(priority = 6)
     @Story("This method selects the requested return date and checks the equality of the requested and the selected value")
     @Feature("Selecting the return day value")
     public void checkReturnDate() {
-
         ticketDateSearch.selectReturnDay();
-
         assertTrue(ticketDateSearch.getReturnDay());
 
     }
@@ -97,39 +81,29 @@ public class TicketPageTest extends BaseTest {
         assertTrue(flightType.checkGraphicBar());
     }
 
-    /* ==================== TICKET SELECT PAGE TESTS ==================== */
+    /* ==================== TICKET SELECT PAGE TEST2 ==================== */
 
     @Test(priority = 8)
     @Story("This method checks the flight is connected or non-stop")
     @Feature("Check flight type as connected or non-stop")
     public void checkFlightType() {
-
         ticketSelect = new TicketSelect(driver);
-        if (DriverSetup.properties.getProperty("isDirect").toLowerCase().equals("true")) {
+        if (DriverSetup.properties.getProperty("isDirect").equalsIgnoreCase("true")) {
             flightType.directFlight();
             assertFalse(flightType.directFlightAssertions());
-
-        } else if (DriverSetup.properties.getProperty("isDirect").toLowerCase().equals("false")) {
-
+        } else if (DriverSetup.properties.getProperty("isDirect").equalsIgnoreCase("false")) {
             flightType.flightWithTransfers();
             assertFalse(flightType.flightWithTransfersAssertion());
         }
-
-    }
-    @Test (priority = 9)
-    public void selectTicket() throws InterruptedException {
-
-        ticketSelect.selectFlights();
-
     }
 
-
-    /* ==================== TICKET PAYMENT PAGE TESTS ==================== */
+    /* ==================== TICKET PAYMENT PAGE TEST ==================== */
 
     @Test(priority = 9)
-    @Story("This method checks the proceed to payment button is enabled.")
+    @Story("This method checks that the correct tickets are received and the payment button is enabled.")
     @Feature("Check payment button is enabled.")
-    public void checkPaymentBtn() {
+    public void checkTickets()  {
+        ticketSelect.selectFlights();
         ticketSelect.chooseTicket();
         paymentPage = new PaymentPage(driver);
         assertTrue(paymentPage.isProceedToPaymentBtnEnabled());

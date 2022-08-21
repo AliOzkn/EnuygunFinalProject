@@ -9,8 +9,6 @@ public class FlightType extends BasePage {
     By oneTransfer = By.xpath("//span[text()='1 aktarma ']");
     By moreThanOneTransfer = By.xpath("//span[text()='2+ aktarma ']");
     By smartTransfer = By.xpath("(//label[@class='custom-control custom-checkbox'])[4]");
-    By resultEmptyText = By.xpath("//p[@class='result-empty-text']");
-
 
     public FlightType(WebDriver driver) {
         super(driver);
@@ -40,7 +38,6 @@ public class FlightType extends BasePage {
     }
 
     public boolean flightWithTransfersAssertion() {
-
         return isSelected(directFlights);
     }
 

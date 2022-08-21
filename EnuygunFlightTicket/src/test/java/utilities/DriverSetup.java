@@ -25,7 +25,7 @@ public class DriverSetup {
         chromeOptions.addArguments("--disable-extensions");
         chromeOptions.addArguments("--disable-notifications");
         chromeOptions.addArguments("--ignore-certificate-errors");
-        firefoxOptions.addPreference("dom. webnotifications.enabled",false);
+        firefoxOptions.addPreference("dom. webnotifications.enabled", false);
         properties = ReadConfig.getProperties();
         try {
             switch (browser) {

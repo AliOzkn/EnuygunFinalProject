@@ -16,7 +16,6 @@ public class BasePage {
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
-
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     }
 
@@ -24,10 +23,11 @@ public class BasePage {
         wait.until(ExpectedConditions.visibilityOf(element));
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView()", element);
+
     }
 
     public WebElement find(By locator) {
-        wait.until(ExpectedConditions.visibilityOfElementLocated( locator));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
         return driver.findElement(locator);
     }
 
@@ -46,12 +46,8 @@ public class BasePage {
         find(locator).sendKeys(text);
     }
 
-    public String getAttribute(By locator, String value) {
 
-        return find(locator).getAttribute(value).toLowerCase();
-    }
     public String getText(By locator) {
-
         return find(locator).getText();
     }
 

@@ -8,7 +8,6 @@ public class PaymentPage extends BasePage {
     WebElement proceedToPaymentBtn = driver.findElement(By.cssSelector(".btn.btn-success"));
 
     public PaymentPage(WebDriver driver) {
-
         super(driver);
     }
 

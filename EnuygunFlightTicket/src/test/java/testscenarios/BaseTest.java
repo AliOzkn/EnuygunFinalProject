@@ -3,6 +3,7 @@ package testscenarios;
 import loglistener.LogListener;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Listeners;
 import utilities.DriverSetup;
@@ -26,10 +27,10 @@ public class BaseTest {
 
     }
 
-   /* @AfterSuite
+    @AfterSuite
     public void driverClose() {
         driver.close();
-    }*/
+    }
 
 
 }
