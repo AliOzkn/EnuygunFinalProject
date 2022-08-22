@@ -12,7 +12,9 @@
 #### 8) (provider) Kullanıcıdan sağlayıcı bilgisi alınır. Bu bilgi ile aynı paket içerisindeki gidiş ve dönüş biletleri seçtirilir.
 #### 9) Seç butonuna tıklanır.
 
-#### Parametrik olarak alınacak veriler, src/test/resources/config.properties dosyasına yazılmalıdır. Burada ayrıca tarayıcı seçimi yapılabilmektedir. (Program Chrome, Firefox ve Edge tarayıcılarını desteklemektedir. ) Aşağıda örneği gösterilmiştir.
+#### Parametrik olarak alınacak veriler, src/test/resources/config.properties dosyasına yazılmalıdır. Burada ayrıca tarayıcı seçimi yapılabilmektedir. (Program Chrome, Firefox ve Edge tarayıcılarını desteklemektedir. ) Aşağıda örneği gösterilmiştir. (Büyük, küçük harfe duyarlı değildir. Fakat Türkçe karakter kullanmayınız.)
+![properties](https://user-images.githubusercontent.com/107454207/185840170-fb082bbf-b046-4647-a2b8-126a6d4a980c.png)
+
 
 ---
 
