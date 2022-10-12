@@ -1,22 +1,3 @@
-<h1 align="center"> Enuygun - Test Automation Bootcamp - UCAK BILETI SATIN ALMA  </h1>
-
-### Test Senaryosu
-#### Parametrik olarak alınacak veriler ile;
-#### 1) https://www.enuygun.com/ucak-bileti/ adresine gidilir.
-#### 2) (origin) Nereden Input alanına, kullanıcıdan alınan yurtiçi şehir ismi girilir. Çıkan sonuçlardan ilkine tıklanır.
-#### 3) (destination) Nereye Input alanına, kullanıcıdan alınan yurtdışı şehir ismi girilir. Çıkan sonuçlardan ilkine tıklanır.
-#### 4) (departureDay) Kullanıcıdan bugünü 0 alarak, kaç gün sonra gitmek istediği bilgisi alınır. Bu bilgi ile gidiş tarihi seçtirilir.
-#### 5) (returnDay) Kullanıcıdan gidiş tarihini 0 alarak, kaç gün sonra dönmek istediği bilgisi alınır. Bu bilgi ile dönüş tarihi seçtirilir.
-#### 6) Ucuz bilet bul butonuna tıklanır.
-#### 7) (isDirect) Kullanıcıdan aktarmalı veya direkt uçuş bilgisi girilmesi istenir. Bu değer true (Direkt uçuş) veya false (Aktarmalı uçuş) olabilir. 
-#### 8) (provider) Kullanıcıdan sağlayıcı bilgisi alınır. Bu bilgi ile aynı paket içerisindeki gidiş ve dönüş biletleri seçtirilir.
-#### 9) Seç butonuna tıklanır.
-
-#### Parametrik olarak alınacak veriler, src/test/resources/config.properties dosyasına yazılmalıdır. Burada ayrıca tarayıcı seçimi yapılabilmektedir. (Program Chrome, Firefox ve Edge tarayıcılarını desteklemektedir. Aşağıda örneği gösterilmiştir. (Büyük, küçük harfe duyarlı değildir. Fakat Türkçe karakter kullanmayınız.)
-![properties](https://user-images.githubusercontent.com/107454207/185840170-fb082bbf-b046-4647-a2b8-126a6d4a980c.png)
-
-
----
 
 ### Gidiş ve Dönüş Tarihleri Nasıl Seçildi?
 
@@ -113,6 +94,3 @@ public void selectDepartureDay(){
 ```java
 c1.add(Calendar.DATE, (Integer.parseInt(DriverSetup.properties.getProperty("departureDay"))) + (Integer.parseInt(DriverSetup.properties.getProperty("returnDay"))));
 ```
----
-#### Projede raporlama olarak Allure Report kullanılmıştır. Terminale allure serve (allure-results dosyası xpath) yazarak ilgili sayfaya ulaşabilirsiniz.
-![allure-result](https://user-images.githubusercontent.com/107454207/185796654-85c14aec-78ad-4f19-aecd-b688ef4ba1a9.png)
