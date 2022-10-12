@@ -30,7 +30,41 @@ https://www.enuygun.com/ucak-bileti/ adresinden, gidişi yurt içi, dönüşü y
 <hr>
 <h3> Test Sonuçları </h3><br>
 
-Bu projede, raporlama olarak <b> Allure Report </b> kullanılmıştır. Terminale allure serve (allure-results dosyası xpath) yazılarak ilgili sayfaya ulaşılabilir.<br>
+Bu projede, raporlama olarak <b> Allure Report </b> kullanılmıştır. Terminale ```allure serve (allure-results dosyası xpath)``` yazılarak ilgili sayfaya ulaşılabilir.<br>
 ![allure-result](https://user-images.githubusercontent.com/107454207/185796654-85c14aec-78ad-4f19-aecd-b688ef4ba1a9.png)
 
+<hr>
+<hr>
+<hr>
+<h1>Swagger PetStore API Test</h1>
+### Test Senaryosu
+https://petstore.swagger.io/ servisi kullanılarak,<br>
+<b>1)</b> /pet/findByStatus servisinin available, pending,sold parametresi ile testleri yazılır.<br>
+
+![1](https://user-images.githubusercontent.com/107454207/195404580-50533df5-b8fa-4e33-a852-f1dbc3c74649.png) <br>
+
+<b>2)</b>/pet/findByStatus responsundan dönen pet'lerin üçüncüsünün Id'sini /pet/{petId} get servisine pet id parametresinde göndererek testi yazılır.<br>
+
+![2](https://user-images.githubusercontent.com/107454207/195404811-62fbe607-decf-4d97-aad8-77e195040a65.png) <br>
+
+<b>3)</b> /pet/{petId} post methodu için test yazılır.<br>
+
+![3](https://user-images.githubusercontent.com/107454207/195404830-5c5e905b-263c-47cd-98fe-e401a6574b87.png) <br>
+
+<b>4)</b> /pet/{petId} delete methodu için test yazılır.<br>
+
+![4](https://user-images.githubusercontent.com/107454207/195404833-9e1e801e-f345-43f2-9466-4e2d9db11799.png) <br>
+
+---
+### ÖNEMLİ NOT
+
+*  <b>get/FindByStatus</b> servisinden dönen <b> id </b> değerleri bazen <b>int</b>, bazen <b> Long</b> veri tipinde olmaktadır. Kodlar yazılırken, hangi veri tipinin kullanıldığı ve hata alınması durumunda, hangi satırın, hangi şekilde değiştirilmesi gerektiği, sınıf dosyalarında belirtilmiştir.
+*  "pending" ve "sold" parametreleriyle dönen responselarda çoğu zaman 1 veya 2 adet değer çıkmaktadır. Bu yüzden response'daki 3. id değeri yerine, 1. id değeri alınmıştır.
+*  Proje SwaggerPetTest / testng.xml dosyası ile çalıştırılabilir.
+---
+### Test Sonuçları
+
+![allurereport-1](https://user-images.githubusercontent.com/107454207/185461977-fbd7f42a-9ed3-4001-99ee-080e5da1f8c2.png)
+
+![allurereport-2](https://user-images.githubusercontent.com/107454207/185462084-79304941-2783-4266-9ece-4fbbd159a960.png)
 
