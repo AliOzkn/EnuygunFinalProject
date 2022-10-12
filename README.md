@@ -15,3 +15,22 @@ https://www.enuygun.com/ucak-bileti/ adresinden, gidişi yurt içi, dönüşü y
 * **returnDay &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :** Gidiş tarihini 0 kabul ederek, gidiş tarihinden kaç gün sonra dönmek istediğini yazılmalıdır.<br>
 * **provider &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :** Uçuş sağlayıcı ismi girilmelidir.<br>
 * **isDirect &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :** Aktarmalı veya direkt uçuş isteği belirtilmelidir. Bu değer boolean veri tipindedir. Eğer direkt uçuş isteniyorsa true, aktarmalı uçuş isteniyorsa false yazılmalıdır.<br>
+
+<hr>
+<h3> Projenin Çalıştırılması </h3><br>
+<b>1)</b> Projenin çalıştırılacağı bilgisayarda Java SDK ve Apache Maven kurulu olmalıdır. Ayrıca raporlamanın stabil çalışması için Allure CommandLine yüklenmelidir. <br>
+<b>2)</b></b> Bu bir <b> Maven </b> projesidir. Programın ilk başta çalışmaması halinde, tek yapılması gereken <b> pom.xml </b> dosyasını güncellemektir. <br>
+<b> pom.xml </b> dosyası açıldıktan sonra, Intellij için sağ tarafta bulunan Maven sekmesi açılarak aşağıda kırmızıyla gösterilen <b> update </b> simgesine tıklamak yeterlidir.<br>
+
+![maven update](https://user-images.githubusercontent.com/107454207/195383550-c5d31544-5950-489d-b85b-10fa0e4de831.png)
+
+
+<b>3)</b> Proje, <b> src/test/java/testscenarios/testng.xml </b> dosyasından çalıştırılmalıdır.
+
+<hr>
+<h3> Test Sonuçları </h3><br>
+
+Bu projede, raporlama olarak <b> Allure Report </b> kullanılmıştır. Terminale allure serve (allure-results dosyası xpath) yazılarak ilgili sayfaya ulaşılabilir.<br>
+![allure-result](https://user-images.githubusercontent.com/107454207/185796654-85c14aec-78ad-4f19-aecd-b688ef4ba1a9.png)
+
+
