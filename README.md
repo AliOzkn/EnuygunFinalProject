@@ -60,7 +60,7 @@ https://petstore.swagger.io/ servisi kullanılarak,<br>
 
 *  <b>get/FindByStatus</b> servisinden dönen <b> id </b> değerleri bazen <b>int</b>, bazen <b> Long</b> veri tipinde olmaktadır. Kodlar yazılırken, hangi veri tipinin kullanıldığı ve hata alınması durumunda, hangi satırın, hangi şekilde değiştirilmesi gerektiği, sınıf dosyalarında belirtilmiştir.
 *  "pending" ve "sold" parametreleriyle dönen responselarda çoğu zaman 1 veya 2 adet değer çıkmaktadır. Bu yüzden response'daki 3. id değeri yerine, 1. id değeri alınmıştır.
-*  Proje SwaggerPetTest / testng.xml dosyası ile çalıştırılabilir.
+*  Proje tests / testng.xml dosyası ile çalıştırılabilir.
 ---
 ### Test Sonuçları
 

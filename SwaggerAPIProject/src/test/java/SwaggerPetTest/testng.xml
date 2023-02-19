@@ -1,9 +1,0 @@
-<suite name="Swagger PetStore" >
-    <test name="Swagger Find Pet Test">
-        <classes>
-            <class name="SwaggerPetTest.SwaggerPetTestWithAvailableParameter"/>
-            <class name="SwaggerPetTest.SwaggerPetTestWithPendingParameter"/>
-            <class name="SwaggerPetTest.SwaggerPetTestWithSoldParameter"/>
-        </classes>
-    </test>
-</suite>

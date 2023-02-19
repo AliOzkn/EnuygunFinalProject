@@ -1,25 +1,30 @@
-#### Available, pending ve sold parametreleri için 3 ayrı sınıf oluşuturulmuştur. Aşağıdaki kod parçası, get/pet/findByStatus sorgusundan dönen response'u List olarak alarak, listenin 3. öğesinin id değerini almamızı sağlamaktadır. Bu değer, diğer sorgularda kullanılacaktır.
+#### This code keeps the "id" values in the response obtained from the query in the form a list. The value in the desired index can be used in other queries.
 ```java
-String thirdId;
 
-@Test(priority = 0)
-@Story("This method gets third Id value from Get/FindByStatus request.")
-@Feature("Get third Id value")
-public void getThirdIdValue() {
+public List<Object> getId(String status) {
 
-        List<Object> list = RestAssured
+        list = RestAssured
         .given()
-        .queryParam("status", "available")
+        .queryParam("status", status)
         .when()
-        .get(baseURI + "/findByStatus")
+        .get(baseURI + EndPoints.findByStatus)
         .then()
         .extract().path("id");
-
-        thirdId = String.valueOf(list.get(2));
-        System.out.println("thirdId : " + thirdId);
+        return list;
 
         }
 ```
+<br><br>
+- In EndPoints class, there are different endpoints for different queries.
+- In Requests class, there are commands for GET, POST, DELETE methods.
+- In Tests folder, there are different tests created for the "available","pending" and "sold" parameters.
+<br><br><br>
+ <p align="center">
+ <img src="https://user-images.githubusercontent.com/107454207/219943734-bd3fd67e-7a72-4ea8-9816-03ef9dcb2c19.png"/>
+  </p>
+
+
+
 
 
 

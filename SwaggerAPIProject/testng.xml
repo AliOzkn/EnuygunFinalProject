@@ -1,0 +1,9 @@
+<suite name="Swagger PetStore" parallel="classes">
+    <test name="Swagger Find Pet Test">
+        <classes>
+            <class name="tests.AvailableParameter"/>
+            <class name="tests.PendingParameter"/>
+            <class name="tests.SoldParameter"/>
+        </classes>
+    </test>
+</suite>
