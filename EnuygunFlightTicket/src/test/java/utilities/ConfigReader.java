@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
-public class ReadConfig {
+public class ConfigReader {
 
     private static Properties properties;
 
@@ -20,13 +20,9 @@ public class ReadConfig {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        return getProperties();
-    }
-
-    public static Properties getProperties() {
-
         return properties;
     }
+
 
 
 

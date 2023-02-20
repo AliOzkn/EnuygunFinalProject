@@ -1,10 +1,10 @@
 <suite name="EnUygun Flight Ticket" >
     <listeners>
-        <listener class-name="loglistener.LogListener" />
+        <listener class-name="utilities.Listener" />
     </listeners>
     <test name="Buying a flight ticket.">
         <classes>
-            <class name="testscenarios.TicketPageTest"/>
+            <class name="testscenarios.FlightTicketTest"/>
         </classes>
     </test>
 </suite>
